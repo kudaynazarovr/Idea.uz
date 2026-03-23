@@ -4,6 +4,7 @@ import { RiFacebookFill } from "react-icons/ri";
 import { LiaInstagram } from "react-icons/lia";
 import { ButtonLeaveMessege } from '../components/Buttons/ButtonLeaveMessege';
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 
 const { Footer } = Layout;
 
@@ -19,7 +20,7 @@ function AppFooter() {
                             Idea
                         </h1>
 
-                        <div className='flex items-center gap-x-2 max-sm:flex-col max-sm:gap-y-2 max-sm:items-start'>
+                        <div className='flex items-center gap-x-2 max-sm:flex-col max-sm:gap-y-2 max-sm:items-center'>
                             <i className='p-3 border border-gray-300 text-2xl rounded-full cursor-pointer'>
                                 <LiaTelegramPlane />
                             </i>
@@ -39,11 +40,19 @@ function AppFooter() {
 
                         <ul className='flex flex-col gap-y-2'>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("СтатьПартнером")}</li>
+                            <Link to="/faq" className='text-gray-300 hover:text-pink-500 cursor-pointer'>
+                                <p className='text-gray-300'>
+                                    {t("ВопросыИОтветы")}
+                                </p>
+                            </Link>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("УсловияCотрудничества")}</li>
+                            <Link to={'order'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("КакСделатьЗаказНаСайте")}</li>
+                            </Link>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("ВозвратИОбмен")}</li>
+                            <Link to={'/exchange'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("ВозвратИОбмен")}</li>
+                            </Link>
 
                         </ul>
                     </div>
@@ -53,11 +62,17 @@ function AppFooter() {
 
                         <ul className='flex flex-col gap-y-2'>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("ОНас")}</li>
+                            <Link to={'/about'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("ОНас")}</li>
+                            </Link>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("НашиМагазины")}</li>
+                            <Link to={'/shops'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("НашиМагазины")}</li>
+                            </Link>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Контакты")}</li>
+                            <Link to={'/contact'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Контакты")}</li>
+                            </Link>
 
                         </ul>
                     </div>
@@ -68,13 +83,21 @@ function AppFooter() {
 
                         <ul className='flex flex-col gap-y-2'>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Статьи")}</li>
+                            <Link to={'/articles'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Статьи")}</li>
+                            </Link>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Рассрочка")}</li>
+                            <Link to={"/installment"}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Рассрочка")}</li>
+                            </Link>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Оферта")}</li>
+                            <Link to={'/offer'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Оферта")}</li>
+                            </Link>
 
-                            <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Вакансии")}</li>
+                            <Link to={'/vacancies'}>
+                                <li className='text-gray-300 hover:text-pink-500 cursor-pointer'>{t("Вакансии")}</li>
+                            </Link>
 
                         </ul>
                     </div>
@@ -83,7 +106,9 @@ function AppFooter() {
 
                         <b>Обратная связь</b>
 
-                        <ButtonLeaveMessege />
+                        <Link to={'/feedback'}>
+                            <ButtonLeaveMessege />
+                        </Link>
 
                         <div className='flex flex-col gap-y-2'>
                             <b className='text-lg hover:text-pink-500'>71 230 77 99</b>

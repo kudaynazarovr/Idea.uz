@@ -13,8 +13,11 @@ function ProductCart({ search }) {
     const { addToCart } = useContext(MyContext);
     const { addToLike } = useContext(MyContext);
 
-    const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()))
+    const safeSearch = search?.toLowerCase() || "";
 
+    const filteredProducts = products.filter(item =>
+        item.name?.toLowerCase().includes(safeSearch)
+    );
     return (
         <>
             <div className='grid grid-cols-6 gap-x-4 gap-y-3 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4'>
